@@ -1,4 +1,6 @@
 {
+    "name": "paw-2020/mvc-framework",
+    "description": "A micro framework to use in PAW Projects",
     "autoload": {
         "psr-4": {
             "Paw\\App\\": "src/App",
