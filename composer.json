@@ -1,12 +1,10 @@
 {
     "autoload": {
         "psr-4": {
-            "App\\": ["./app", "./core"]
+            "Paw\\App\\": "src/App",
+            "Paw\\Core\\": "src/Core"
         },
-        "classmap": [
-            "./"
-        ],
-        "files": ["core/helpers.php"]
+        "files": ["src/Core/helpers.php"]
     },
     "require": {
         "monolog/monolog": "^1.23",

@@ -1,15 +1,15 @@
 <?php
 
-require __DIR__ . '/../core/bootstrap.php';
+require __DIR__ . '/../src/bootstrap.php';
 
-use App\Core\App;
-use App\Core\Router;
-use App\Core\Request;
-use App\Core\Logger;
-use App\Core\Exceptions\RouteNotFoundException as RouteNotFoundException;
+use Paw\Core\App;
+use Paw\Core\Router;
+use Paw\Core\Request;
+use Paw\Core\Logger;
+use Paw\Core\Exceptions\RouteNotFoundException as RouteNotFoundException;
 
 $logger = App::get('logger');
-$router = Router::load(__DIR__ . '/../app/routes.php');
+$router = Router::load(__DIR__ . '/../src/App/routes.php');
 
 try {
     $render = $router->direct(Request::uri(), Request::method());

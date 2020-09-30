@@ -14,10 +14,10 @@ return [
     ],
     'logger' => [
         'level' => MonologLogger::INFO,
-        'path' => __DIR__ . 'logs/mvc.log'
+        'path' => __DIR__ . '/logs/mvc.log'
     ],
     'twig' => [
-        'templates_dir' => __DIR__ . '/app/views',
-        'templates_cache_dir' => __DIR__ . '/app/views/cache'
+        'templates_dir' => __DIR__ . '/App/views',
+        'templates_cache_dir' => __DIR__ . '/App/views/cache'
     ]
 ];
