@@ -3,8 +3,7 @@
     "description": "A micro framework to use in PAW Projects",
     "autoload": {
         "psr-4": {
-            "Paw\\App\\": "src/App",
-            "Paw\\Core\\": "src/Core"
+            "Paw\\": "src"
         },
         "files": ["src/Core/helpers.php"]
     },
