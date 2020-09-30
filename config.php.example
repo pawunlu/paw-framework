@@ -13,7 +13,8 @@ return [
         ]
     ],
     'logger' => [
-        'level' => MonologLogger::INFO
+        'level' => MonologLogger::INFO,
+        'path' => __DIR__ . 'logs/mvc.log'
     ],
     'twig' => [
         'templates_dir' => __DIR__ . '/app/views',

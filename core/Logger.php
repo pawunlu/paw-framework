@@ -11,12 +11,12 @@ final class Logger
 	 * Implementa Singleton del Logger
 	 * @return Logger La instancia del Logger
 	 */
-	public static function getLogger($level)
+	public static function getLogger($level, $path = '../logs/mvc.log')
 	{
 		static $instancia = null;
 		if ( is_null($instancia) ) {
 			$instancia = new MonologLogger('mvc_logger');
-			$instancia->pushHandler(new StreamHandler('logs/mvc.log', $level));
+			$instancia->pushHandler(new StreamHandler($path, $level));
 		}
 		return $instancia;
 	}

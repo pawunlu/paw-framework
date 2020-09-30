@@ -1,28 +1,31 @@
 <?php
 
+require __DIR__ . '/../vendor/autoload.php';
+
 use App\Core\App;
 use App\Core\Database\QueryBuilder;
 use App\Core\Database\Connection;
 use App\Core\Logger;
-use Monolog\Logger as MonologLogger;
 
 /**
  * Load config
  */
-App::bind('config', require 'config.php');
+App::bind('config', require __DIR__ . '/../config.php');
 
 /**
  * Load logger object
  */
-App::bind('logger', Logger::getLogger(App::get('config')['logger']['level']));
+$logger_level = App::get('config')['logger']['level'];
+$logger_path = App::get('config')['logger']['path'];
+App::bind('logger', Logger::getLogger($logger_level, $logger_path));
 
 /**
  * Load database connection
  */
-App::bind('database', new QueryBuilder(
+/*App::bind('database', new QueryBuilder(
     Connection::make(App::get('config')['database']),
     App::get('logger')
-));
+));*/
 
 /**
  * Load template engine
