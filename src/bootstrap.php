@@ -1,7 +1,5 @@
 <?php
 
-//namespace Paw;
-
 require __DIR__ . '/../vendor/autoload.php';
 
 use Paw\Core\App;
@@ -24,16 +22,16 @@ App::bind('logger', Logger::getLogger($logger_level, $logger_path));
 /**
  * Load database connection
  */
-/*App::bind('database', new QueryBuilder(
+App::bind('database', new QueryBuilder(
     Connection::make(App::get('config')['database']),
     App::get('logger')
-));*/
+));
 
 /**
  * Load template engine
  */
-$loader = new Twig_Loader_Filesystem(App::get('config')['twig']['templates_dir']);
-$twig = new Twig_Environment($loader, array(
+$loader = new \Twig_Loader_Filesystem(App::get('config')['twig']['templates_dir']);
+$twig = new \Twig_Environment($loader, array(
     'cache' => App::get('config')['twig']['templates_cache_dir'],
     'debug' => true,
 ));
