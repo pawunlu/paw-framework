@@ -6,33 +6,36 @@ use Paw\Core\App;
 use Paw\Core\Database\QueryBuilder;
 use Paw\Core\Database\Connection;
 use Paw\Core\Logger;
+use Paw\Core\TwigBuilder;
 
 /**
  * Load config
  */
 App::bind('config', require __DIR__ . '/../config.php');
+$config = App::get('config');
 
 /**
  * Load logger object
  */
-$logger_level = App::get('config')['logger']['level'];
-$logger_path = App::get('config')['logger']['path'];
+$logger_level = $config['logger']['level'];
+$logger_path = $config['logger']['path'];
 App::bind('logger', Logger::getLogger($logger_level, $logger_path));
 
 /**
  * Load database connection
  */
 App::bind('database', new QueryBuilder(
-    Connection::make(App::get('config')['database']),
+    Connection::make($config['database']),
     App::get('logger')
 ));
 
 /**
- * Load template engine
+ * Build a template engine
  */
-$loader = new \Twig_Loader_Filesystem(App::get('config')['twig']['templates_dir']);
-$twig = new \Twig_Environment($loader, array(
-    'cache' => App::get('config')['twig']['templates_cache_dir'],
-    'debug' => true,
-));
+$twig = (new TwigBuilder)
+    ->setTemplateDir($config['twig']['templates_dir'])
+    ->setCacheDir($config['twig']['templates_cache_dir'])
+    ->setDebug(true)
+    ->buildLoader()
+    ->build();
 App::bind('twig', $twig);
