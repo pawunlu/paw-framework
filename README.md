@@ -1,7 +1,6 @@
 # Proyecto MVC
 
-Un proyecto derivado del tutorial introductorio de Laracast y con algunos
-agregados para ser utilizado como material en la asignatura PAW - UNLu.
+Un proyecto derivado del tutorial introductorio de Laracast y con algunos agregados para ser utilizado como material en la asignatura PAW - UNLu.
 
 ## Instalación
 
@@ -12,33 +11,14 @@ agregados para ser utilizado como material en la asignatura PAW - UNLu.
  - Ejecutar los migrations del directorio `sql/` en orden
  - Configurar la base de datos creada y los usuarios correspondientes
 
-### Aclaración
-
-Por cada objeto creado por usted mismo (Model o Controller), debera indicar a
-composer que regenere el autoload:
-
-```
-composer dumpautoload
-```
-
-Si lo que se desea es agregar una nueva libreria de 3ero
-
-```
-composer requiere name/lib:version
-```
-
 ## Deploy / ejecución
 
 ### Local
 
-Ejecutar:
+Luego de [instalar](#Instalación), ejecutar:
 
-```
-git clone https://github.com/pawunlu/paw-framework.git paw-mvc/
-cd paw-mvc/
-# Aca irian los pasos de instalación
+```bash
 php -S localhost:8888 -t public
 ```
 
 Luego ingresar a http://localhost:8888
-
