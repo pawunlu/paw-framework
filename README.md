@@ -15,7 +15,7 @@ Un proyecto derivado del tutorial introductorio de Laracast y con algunos agrega
 
 ### Local
 
-Luego de [instalar](#Instalación), ejecutar:
+Luego de [instalar](#instalación), ejecutar:
 
 ```bash
 php -S localhost:8888 -t public
